@@ -9,6 +9,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "mo-js": "^0.288.2",
     "stellar-sdk": "^0.8.0"
   }
 }
