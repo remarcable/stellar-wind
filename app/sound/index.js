@@ -7,5 +7,5 @@ export function playNote() {
 }
 
 export function playBackgroundSounds() {
-
+    // ...
 }

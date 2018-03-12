@@ -1,9 +1,7 @@
-import './index.css';
 import { drawUniverse, shootNewStar } from './animation';
 import { createNewStreamOfTransactions } from './stellar';
-
 import { playBackgroundSounds, playNote } from './sound';
-
+import './index.css';
 
 drawUniverse();
 playBackgroundSounds();
