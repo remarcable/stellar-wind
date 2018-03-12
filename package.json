@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "predeploy": "parcel build index.html --public-url ./",
+    "deploy": "gh-pages -d dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -12,5 +14,9 @@
     "mo-js": "^0.288.2",
     "stellar-sdk": "^0.8.0",
     "tone": "^0.11.11"
+  },
+  "devDependencies": {
+    "gh-pages": "^1.1.0",
+    "parcel-bundler": "^1.6.2"
   }
 }
