@@ -1,14 +1,13 @@
 import * as StellarSdk from 'stellar-sdk';
 
-const server = new StellarSdk.Server('https://horizon-testnet.stellar.org');
-const lastCursor = 'now';
+const server = new StellarSdk.Server('https://horizon.stellar.org');
 
-const txHandler = function (txResponse) {
-    console.log(txResponse);
-};
+export function createNewStreamOfTransactions(callback) {
+    const lastCursor = 'now';
 
-const es = server.transactions()
-    .cursor(lastCursor)
-    .stream({
-        onmessage: txHandler
-    })
+    const es = server.transactions()
+        .cursor(lastCursor)
+        .stream({
+            onmessage: callback,
+        });
+}

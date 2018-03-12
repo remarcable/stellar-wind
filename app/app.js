@@ -1,36 +1,22 @@
-import mojs from 'mo-js';
 import './index.css';
+import { shootNewStar } from './animation';
+import { createNewStreamOfTransactions } from './stellar';
+
+const transactions = [];
+createNewStreamOfTransactions((response) => {
+    transactions.push(response);
+});
+
+window.setInterval(() => {
+    const shouldUpdate = Math.random() > 0.5;
+
+    if (shouldUpdate && transactions.length > 0) {
+        debug(transactions.pop());
+        shootNewStar();
+    }
+}, 250)
 
 
-for (let i = 0; i < 500; i++) {
-    const backgroundShape = new mojs.Shape({
-        parent: document.body,
-        shape: 'circle',
-        top: 0,
-        left: 0,
-        x: 0,
-        y: 0,
-        radius: i < 100 ? 'rand(0.5, 4)': 'rand(0.5, 2)',
-        fill: '#fff',
-    })
-    .tune({
-        top: 'rand(0%, 100%)',
-        left: 'rand(0%, 100%)',
-    })
-    .play();
+const debug = (...args) => {
+    console.log(...args);
 }
-
-document.addEventListener('click', () => {
-    const transactionShape = new mojs.Shape({
-        parent: document.body,
-        shape: 'circle',
-        x: {0: Math.random() > 0.5 ? '60vw' : '-60vw'},
-        y: {0: 'rand(-60vw, 60vw)'},
-        radius: { 0: 40 },
-        fill: { '#F68657': '#ec6e3a' },
-        duration: 2000,
-        onComplete() {
-            this.el.remove();
-        },
-    }).play();
-})
