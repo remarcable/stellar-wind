@@ -1,5 +1,5 @@
 import './index.css';
-import { shootNewStar } from './animation';
+import { drawUniverse, shootNewStar } from './animation';
 import { createNewStreamOfTransactions } from './stellar';
 
 
