@@ -1,14 +1,14 @@
 {
   "name": "stellar-wind",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.0.1",
+  "description": "Listen to the beauty of Stellar transactions",
+  "main": "index.html",
   "scripts": {
     "predeploy": "parcel build index.html --public-url ./",
     "deploy": "gh-pages -d dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+
   "license": "MIT",
   "dependencies": {
     "mo-js": "^0.288.2",
