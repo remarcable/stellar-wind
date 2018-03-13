@@ -7,7 +7,7 @@ body {
     background-image: radial-gradient(#120f54 0%, #1d2435 100%);
     user-select: none;
     -webkit-user-select: none;
-    cursor: normal;
+    cursor: default;
 }
 
 .dashboard {
