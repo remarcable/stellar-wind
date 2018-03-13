@@ -9,12 +9,18 @@ playBackgroundSounds();
 
 let transactions = [];
 let operationAmounts = [];
+let maxOperationAmount = 0;
+
+const normalizationScale = 100;
 
 createNewStreamOfTransactions((response) => {
     transactions.push(response);
     const txOperationAmounts = getNonZeroAmountsFromOperations(response);
     txOperationAmounts.forEach(amount => {
         operationAmounts.push(amount);
+        if (amount > maxOperationAmount) {
+            maxOperationAmount = amount;
+        }
     });
 });
 
@@ -23,6 +29,8 @@ window.setInterval(() => {
 
     if (shouldUpdate && operationAmounts.length > 0) {
         const currentAmount = operationAmounts.pop();
+        const normalizedAmount = Math.ceil((currentAmount / maxOperationAmount) * normalizationScale);
+        console.log('normalizedAmount:', normalizedAmount);
         shootNewStar();
         playNote();
     }
