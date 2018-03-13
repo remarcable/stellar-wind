@@ -25,16 +25,20 @@ export function drawUniverse() {
 }
 
 export function shootNewStar() {
-    const transactionShape = new mojs.Shape({
-        parent: document.body,
-        shape: 'circle',
-        x: {0: Math.random() > 0.5 ? '60vw' : '-60vw'},
-        y: {0: 'rand(-60vw, 60vw)'},
-        radius: { 0: 15 },
+    const transactionShape = new mojs.ShapeSwirl({
         fill: '#fff',
-        duration: 2000,
+        left: 0,
+        top: 0,
+        y: { 'rand(0vh, 50vh)': 'rand(50vh, 100vh)' }, // animation should start in upper right
+        x: { 'rand(60vw, 110vw)': 'rand(0vw, 50vw)' },
+        radius: 'rand(5, 15)',
+        swirlSize: 'rand(0, 10)',
+        swirlFrequency: 2,
+        duration: 'rand(500, 800)',
+        direction: Math.random() > 0.5 ? 1 : -1,
+
         onComplete() {
             this.el.remove();
-        },
+        }
     }).play();
 }
