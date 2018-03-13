@@ -7,18 +7,22 @@ import './index.css';
 drawUniverse();
 playBackgroundSounds();
 
-const transactions = [];
+let transactions = [];
+let operationAmounts = [];
+
 createNewStreamOfTransactions((response) => {
     transactions.push(response);
-    const opsAmounts = getNonZeroAmountsFromOperations(response);
-    console.log('opsAmounts', opsAmounts);
+    const txOperationAmounts = getNonZeroAmountsFromOperations(response);
+    txOperationAmounts.forEach(amount => {
+        operationAmounts.push(amount);
+    });
 });
 
 window.setInterval(() => {
     const shouldUpdate = Math.random() > 0.5;
 
-    if (shouldUpdate && transactions.length > 0) {
-        console.log(transactions.pop());
+    if (shouldUpdate && operationAmounts.length > 0) {
+        const currentAmount = operationAmounts.pop();
         shootNewStar();
         playNote();
     }
