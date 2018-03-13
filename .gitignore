@@ -87,4 +87,5 @@ typings/
 
 
 .cache
+.netlify
 dist
