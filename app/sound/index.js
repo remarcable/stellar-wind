@@ -1,7 +1,9 @@
 import LeadSynth from './lead';
-import BassSynth from './bass';
-import PadsSynth from './pads';
-import WindSynth from './wind';
+import { playBass } from './bass';
+import { playPads } from './pads';
+import { playWind } from './wind';
+
+
 
 const MAX_NOTE_HEIGHT = 100;
 const scale = [
@@ -21,6 +23,9 @@ function noteHeightToNoteName(noteHeight) {
 
 
 export function playBackgroundSounds() {
-    // WindSynth.triggerAttack();
-    // WindSynth.volume.rampTo(-18, 3);
+    playWind();
+    setTimeout(() => {
+        playBass();
+        playPads();
+    }, 500)
 }

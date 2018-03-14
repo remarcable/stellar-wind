@@ -28,4 +28,7 @@ const whiteNoiseSynth = new NoiseSynth({
     }
 }).connect(cutOffFilter);
 
-export default whiteNoiseSynth;
+export function playWind() {
+    whiteNoiseSynth.triggerAttack();
+    whiteNoiseSynth.volume.rampTo(-24, 3);
+}

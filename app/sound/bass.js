@@ -1,3 +1,14 @@
-import { Synth } from 'tone';
+import { Player } from 'tone';
+import bassFile from '../../assets/Bass.mp3';
 
-export default new Synth().toMaster();
+const player = new Player({
+    url: bassFile,
+    loop: true,
+    fadeIn: 5,
+    retrigger: true,
+}).toMaster();
+
+export function playBass() {
+    player.volume.value = -12;
+    player.start();
+}
