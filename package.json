@@ -1,6 +1,6 @@
 {
   "name": "stellar-wind",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Listen to the beauty of Stellar transactions",
   "main": "index.html",
   "scripts": {
