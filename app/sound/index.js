@@ -1,19 +1,19 @@
 import LeadSynth from './lead';
-import { playBass } from './bass';
-import { playPads } from './pads';
 import { playWind } from './wind';
+import { startMusic } from './music';
 
 
 
 const MAX_NOTE_HEIGHT = 100;
 const scale = [
-    'C3', 'D3', 'Eb3', 'G3', 'Ab3', 'A3', // almost minor pentatonic, but add the Ab for
+    'Eb3', 'G3', 'Ab3', 'A3', // almost minor pentatonic, but add the Ab for
     'C4', 'D4', 'Eb4', 'G4', 'Ab4', 'A4', // some tension
 ];
 
 export function playNote(noteHeight) {
     const noteName = noteHeightToNoteName(noteHeight);
-    LeadSynth.triggerAttackRelease(noteName, '16n')
+    const noteLength = Math.random() > 0.5 ? '16n' : '8n';
+    LeadSynth.triggerAttackRelease(noteName, noteLength)
 }
 
 function noteHeightToNoteName(noteHeight) {
@@ -24,8 +24,5 @@ function noteHeightToNoteName(noteHeight) {
 
 export function playBackgroundSounds() {
     playWind();
-    setTimeout(() => {
-        playBass();
-        playPads();
-    }, 500)
+    startMusic();
 }
