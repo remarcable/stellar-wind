@@ -3,7 +3,6 @@ import { playWind } from './wind';
 import { startMusic } from './music';
 
 
-
 const MAX_NOTE_HEIGHT = 100;
 const scale = [
     'Eb3', 'G3', 'Ab3', 'A3', // almost minor pentatonic, but add the Ab for

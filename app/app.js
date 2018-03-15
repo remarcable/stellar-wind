@@ -34,15 +34,15 @@ window.setInterval(() => {
             currentAmount = operationAmounts.splice(0, 1)[0];
         }
 
-        console.log(currentAmount, lastAmout);
         lastAmout = currentAmount;
         const normalizedAmount = Math.ceil((currentAmount / maxOperationAmount) * normalizationScale);
-        console.log(normalizedAmount);
+
         if (normalizedAmount === 1) { // 1 sounds very boring
             playNote(Math.round(Math.random() * 100) + 1);
         } else {
             playNote(normalizedAmount);
         }
+
         shootNewStar();
     }
 }, 500)
