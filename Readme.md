@@ -1,7 +1,7 @@
-![image](https://user-images.githubusercontent.com/10008938/37473279-4ffb3144-286e-11e8-92fa-0db7813a100f.png)
+![stellar_wind.jpg](https://s14.postimg.org/esr9nblmp/stellar_wind.jpg)
 
 # Stellar Wind
-Unique music composed by a decentralized organism - the Stellar transaction network
+Unique music composed by a decentralized organism - the [Stellar](https://www.stellar.org) transaction network
 
 ## Description
 
@@ -11,14 +11,17 @@ Headphone usage strongly recommended!
 
 ## Data
 
-The data for Stellar Wind to compose music comes from the Horizon API server. It captures all occurring transactions in a stream and stores all non zero amounts from operations.
-Those amounts are taken of the array in regular intervals, normalized and used as inputs for the music composition.
+The data for Stellar Wind to compose music is streamed from the Horizon API server. It captures all occurring transactions and stores all non zero amounts from operations in the network.
+Those amounts are taken off the array in regular intervals, get normalized and used as inputs for the music composition.
 
 ## Music
 
-tbd..
+Behind the scenes, Stellar Wind uses [tone.js](https://tonejs.github.io/) to play music. To create interesting melodies, notes are picked from a C-minor pentatonic scale with an added A flat. (that adds some interesting colors) ;)
 
+## Plans for the future
 
+We want to compose even more interesting melodies using advanced algorithms and – most importantly – rhythm! The harmonic foundation is currently prerecorded and should be generated in the browser as well. This would allow interesting features: Like choosing different moods and becoming an even more advanced background music composer.
 
+## License
 
-
+The project is [MIT-licensed](./LICENSE).

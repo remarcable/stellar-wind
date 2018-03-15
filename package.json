@@ -1,7 +1,7 @@
 {
   "name": "stellar-wind",
   "version": "0.1.0",
-  "description": "Listen to the beauty of Stellar transactions",
+  "description": "Unique music composed by a decentralized organism",
   "main": "index.html",
   "scripts": {
     "start": "parcel index.html",
