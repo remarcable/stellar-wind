@@ -1,4 +1,4 @@
-![stellar_wind.jpg](https://preview.ibb.co/j7ikvH/stellar_wind.png)
+![image](https://user-images.githubusercontent.com/10008938/37473279-4ffb3144-286e-11e8-92fa-0db7813a100f.png)
 
 # Stellar Wind
 Unique music composed by a decentralized organism - the [Stellar](https://www.stellar.org) transaction network
