@@ -1,4 +1,4 @@
-export class Queue {
+export default class Queue {
     constructor() {
         this.items = [];
     }
@@ -21,5 +21,7 @@ export class Queue {
         if (this.hasItems()) {
             return this.items.splice(0, 1)[0];
         }
+
+        throw new Error('Queue: No value to dequeue');
     }
 }

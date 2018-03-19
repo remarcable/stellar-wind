@@ -7,7 +7,8 @@
         "start": "parcel index.html",
         "predeploy": "parcel build index.html --public-url ./",
         "deploy": "gh-pages -d dist",
-        "prettier": "prettier --write ./app/*.js ./app/**/*.js"
+        "prettier": "prettier --write ./app/**/*.js",
+        "lint": "eslint ./app/**/*.js"
     },
     "license": "MIT",
     "dependencies": {
@@ -16,13 +17,18 @@
         "tone": "^0.11.11"
     },
     "devDependencies": {
+        "eslint": "^4.19.0",
+        "eslint-config-airbnb-base": "^12.1.0",
+        "eslint-plugin-import": "^2.9.0",
         "gh-pages": "^1.1.0",
         "parcel-bundler": "^1.6.2",
         "prettier": "1.11.1"
     },
     "prettier": {
         "tabWidth": 4,
+        "printWidth": 100,
         "singleQuote": true,
-        "trailingComma": "all"
+        "trailingComma": "all",
+        "arrowParens": "always"
     }
 }

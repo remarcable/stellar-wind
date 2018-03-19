@@ -1,17 +1,17 @@
 import { Filter, NoiseSynth, Chorus, Freeverb } from 'tone';
 
 const reverbEffect = new Freeverb({
-    roomSize: .3,
+    roomSize: 0.3,
     dampening: 1000,
-    wet: .2,
+    wet: 0.2,
 }).toMaster();
 
 const chorusEffect = new Chorus({
-    frequency: .02,
+    frequency: 0.02,
     delayTime: 8,
-    depth: .5,
-    feedback: .05,
-    wet: .1,
+    depth: 0.5,
+    feedback: 0.05,
+    wet: 0.1,
 }).connect(reverbEffect);
 
 const cutOffFilter = new Filter({
@@ -22,10 +22,10 @@ const cutOffFilter = new Filter({
 const whiteNoiseSynth = new NoiseSynth({
     volume: -60,
     envelope: {
-        attack: .1,
+        attack: 0.1,
         sustain: 2,
         release: 2,
-    }
+    },
 }).connect(cutOffFilter);
 
 export function playWind() {

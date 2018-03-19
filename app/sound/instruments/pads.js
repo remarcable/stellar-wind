@@ -3,9 +3,9 @@ import { requestStartMusic } from '../background-music';
 import padsFile from '../../../assets/Pads.mp3';
 
 const reverbEffect = new Freeverb({
-    roomSize: .9,
+    roomSize: 0.9,
     dampening: 10000,
-    wet: .8,
+    wet: 0.8,
 }).toMaster();
 
 const player = new Player({
@@ -17,8 +17,8 @@ const player = new Player({
         requestStartMusic('padsLoaded');
     },
 })
-.connect(reverbEffect)
-.toMaster();
+    .connect(reverbEffect)
+    .toMaster();
 
 export function playPads() {
     player.volume.value = -18;

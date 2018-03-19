@@ -1,12 +1,12 @@
 import { drawUniverse, shootNewStar } from './animation';
 import { createStreamOfNormalizedTransactions } from './stellar';
-import { getAverage, Queue } from './helpers';
+import { Queue } from './helpers';
 import { MAX_NOTE_HEIGHT } from './sound/constants';
 import { playNote, playRandomNote, playBackgroundSounds } from './sound';
 
 import './index.css';
 
-let normalizedTransactionAmounts = new Queue();
+const normalizedTransactionAmounts = new Queue();
 createStreamOfNormalizedTransactions({
     normalizationScale: MAX_NOTE_HEIGHT,
     callback: newValue => {
@@ -23,7 +23,7 @@ playAndDisplayTransactions({
 });
 
 function playAndDisplayTransactions({ minimumInterval, amounts }) {
-    window.setInterval(function() {
+    window.setInterval(() => {
         // don't update everytime, but create feeling of rythm and "realtimeness"
         const shouldProcess = Math.random() > 0.5;
         if (shouldProcess) {
@@ -40,7 +40,8 @@ function processNormalizedTransactions(normalizedAmounts) {
     const currentAmount = normalizedAmounts.dequeue();
     if (currentAmount === 1) {
         // a lot of transactions tend to have a normalized value of 1
-        // playing the same note again and again sounds boring, we therefore play a random note instead
+        // playing the same note again and again sounds boring,
+        // we therefore play a random note instead
         playRandomNote();
         shootNewStar();
     } else {

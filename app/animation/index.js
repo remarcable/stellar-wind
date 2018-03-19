@@ -1,8 +1,8 @@
 import mojs from 'mo-js';
 
 export function drawUniverse() {
-    for (let i = 0; i < 500; i++) {
-        const backgroundShape = new mojs.Shape({
+    for (let i = 0; i < 500; i += 1) {
+        new mojs.Shape({
             parent: document.body,
             shape: 'circle',
             top: 0,
@@ -24,7 +24,7 @@ export function drawUniverse() {
 }
 
 export function shootNewStar() {
-    const transactionShape = new mojs.ShapeSwirl({
+    new mojs.ShapeSwirl({
         fill: '#fff',
         left: 0,
         top: 0,

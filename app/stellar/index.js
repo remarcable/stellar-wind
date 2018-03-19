@@ -20,9 +20,9 @@ function getNonZeroAmountsFromOperations(transaction) {
     );
     const operations = envelopeXDR._attributes.tx._attributes.operations;
 
-    let operationAmounts = [];
+    const operationAmounts = [];
 
-    operations.forEach(operation => {
+    operations.forEach((operation) => {
         const amount = operation._attributes.body._value._attributes.amount;
         if (amount && amount.low > 0) {
             operationAmounts.push(amount.low);
@@ -32,22 +32,18 @@ function getNonZeroAmountsFromOperations(transaction) {
     return operationAmounts;
 }
 
-export function createStreamOfNormalizedTransactions({
-    normalizationScale,
-    callback,
-}) {
+/* eslint-disable import/prefer-default-export */
+export function createStreamOfNormalizedTransactions({ normalizationScale, callback }) {
     let maxOperationAmount = 0;
 
-    createStreamOfTransactions(response => {
+    createStreamOfTransactions((response) => {
         const txOperationAmounts = getNonZeroAmountsFromOperations(response);
-        txOperationAmounts.forEach(amount => {
+        txOperationAmounts.forEach((amount) => {
             if (amount > maxOperationAmount) {
                 maxOperationAmount = amount;
             }
 
-            const normalizedAmount = Math.ceil(
-                amount / maxOperationAmount * normalizationScale,
-            );
+            const normalizedAmount = Math.ceil(amount / maxOperationAmount * normalizationScale);
             callback(normalizedAmount);
         });
     });
