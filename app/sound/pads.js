@@ -1,5 +1,5 @@
 import { Player, Freeverb } from 'tone';
-import { musicFileLoaded } from './music';
+import { requestStartMusic } from './music';
 import padsFile from '../../assets/Pads.mp3';
 
 const reverbEffect = new Freeverb({
@@ -14,7 +14,7 @@ const player = new Player({
     fadeIn: 5,
     retrigger: true,
     onload() {
-        musicFileLoaded('pads');
+        requestStartMusic('padsLoaded');
     },
 })
 .connect(reverbEffect)
@@ -23,8 +23,4 @@ const player = new Player({
 export function playPads() {
     player.volume.value = -18;
     player.start();
-}
-
-export function padsLoaded() {
-    return player.loaded;
 }

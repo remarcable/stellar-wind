@@ -1,5 +1,5 @@
 import { Player } from 'tone';
-import { musicFileLoaded } from './music';
+import { requestStartMusic } from './music';
 import bassFile from '../../assets/Bass.mp3';
 
 const player = new Player({
@@ -8,7 +8,7 @@ const player = new Player({
     fadeIn: 5,
     retrigger: true,
     onload() {
-        musicFileLoaded('bass');
+        requestStartMusic('bassLoaded');
     },
 }).toMaster();
 

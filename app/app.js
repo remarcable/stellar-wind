@@ -1,6 +1,11 @@
 import { drawUniverse, shootNewStar } from './animation';
 import { createNewStreamOfTransactions, getNonZeroAmountsFromOperations } from './stellar';
-import { playBackgroundSounds, playNote } from './sound';
+import { MAX_NOTE_HEIGHT } from './sound/constants';
+import {
+    playBackgroundSounds,
+    playNote,
+    playRandomNote,
+} from './sound';
 
 import './index.css';
 
@@ -11,7 +16,7 @@ let allAmounts = [];
 let operationAmounts = [];
 let maxOperationAmount = 0;
 
-const normalizationScale = 100;
+const normalizationScale = MAX_NOTE_HEIGHT;
 
 createNewStreamOfTransactions((response) => {
     const txOperationAmounts = getNonZeroAmountsFromOperations(response);
@@ -38,7 +43,7 @@ window.setInterval(() => {
         const normalizedAmount = Math.ceil((currentAmount / maxOperationAmount) * normalizationScale);
 
         if (normalizedAmount === 1) { // 1 sounds very boring
-            playNote(Math.round(Math.random() * 100) + 1);
+            playRandomNote();
         } else {
             playNote(normalizedAmount);
         }

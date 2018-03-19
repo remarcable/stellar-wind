@@ -1,25 +1,28 @@
 import { playBass } from './bass';
 import { playPads } from './pads';
 
-export function startMusic() {
-    musicFileLoaded('shouldStart');
-}
+const soundState = {
+    shouldStart: false,
+    bassLoaded: false,
+    padsLoaded: false,
+};
 
-function playMusic() {
+
+function playBackgroundMusic() {
     playBass();
     playPads();
 }
 
-const loaded = {
-    bass: false,
-    pads: false,
-    shouldStart: false,
-};
+const alterStateAndRequestPlayback = type => startCallback => {
+    soundState[type] = true;
 
-export function musicFileLoaded(type) {
-    loaded[type] = true;
-
-    if (loaded.bass && loaded.pads && loaded.shouldStart) {
-        playMusic();
+    if (soundState.bass && soundState.pads && soundState.shouldStart) {
+        startCallback();
     }
+}
+
+export const requestStartMusic = alterStateAndRequestPlayback(playBackgroundMusic);
+
+export function startMusicAfterLoad() {
+    requestStartMusic('shouldStart');
 }

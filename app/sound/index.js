@@ -1,13 +1,14 @@
 import LeadSynth from './lead';
 import { playWind } from './wind';
-import { startMusic } from './music';
+import { startMusicAfterLoad } from './music';
+
+import { scale, MAX_NOTE_HEIGHT } from './constants';
 
 
-const MAX_NOTE_HEIGHT = 100;
-const scale = [
-    'Eb3', 'G3', 'Ab3', 'A3', // almost minor pentatonic, but add the Ab for
-    'C4', 'D4', 'Eb4', 'G4', 'Ab4', 'A4', // some tension
-];
+export function playBackgroundSounds() {
+    playWind();
+    startMusicAfterLoad();
+}
 
 export function playNote(noteHeight) {
     const noteName = noteHeightToNoteName(noteHeight);
@@ -20,8 +21,7 @@ function noteHeightToNoteName(noteHeight) {
      return scale[index];
 }
 
-
-export function playBackgroundSounds() {
-    playWind();
-    startMusic();
+export function playRandomNote() {
+    const noteHeight = Math.round(Math.random() * MAX_NOTE_HEIGHT) + 1;
+    playNote(noteHeight);
 }
