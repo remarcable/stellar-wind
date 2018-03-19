@@ -1,14 +1,3 @@
-body {
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    overflow: hidden;
-    font-family: 'Space Mono', monospace;
-    background-image: radial-gradient(#120f54 0%, #1d2435 100%);
-    user-select: none;
-    -webkit-user-select: none;
-}
-
 .dashboard {
     position: relative;
     z-index: 500;
