@@ -1,5 +1,6 @@
 import { drawUniverse, shootNewStar } from './animation';
 import { createNewStreamOfTransactions, getNonZeroAmountsFromOperations } from './stellar';
+import { getAverage } from './helpers';
 import { MAX_NOTE_HEIGHT } from './sound/constants';
 import {
     playBackgroundSounds,
@@ -12,7 +13,6 @@ import './index.css';
 drawUniverse();
 playBackgroundSounds();
 
-let allAmounts = [];
 let operationAmounts = [];
 let maxOperationAmount = 0;
 
@@ -22,7 +22,6 @@ createNewStreamOfTransactions((response) => {
     const txOperationAmounts = getNonZeroAmountsFromOperations(response);
     txOperationAmounts.forEach(amount => {
         operationAmounts.push(amount);
-        allAmounts.push(amount);
         if (amount > maxOperationAmount) {
             maxOperationAmount = amount;
         }
@@ -51,8 +50,3 @@ window.setInterval(() => {
         shootNewStar();
     }
 }, 500)
-
-
-function getAverage(arr) {
-    return Math.round(arr.reduce((akk, item) => akk + item, 0) / arr.length)
-}
