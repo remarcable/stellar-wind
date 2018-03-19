@@ -45,6 +45,8 @@ function processNormalizedTransactions(normalizedAmounts) {
 
     const currentAmount = normalizedAmounts.dequeue();
     if (currentAmount === 1) {
+        // a lot of transactions tend to have a normalized value of 1
+        // playing the same note again and again sounds boring, we therefore play a random note instead
         playRandomNote();
         shootNewStar();
     } else {
