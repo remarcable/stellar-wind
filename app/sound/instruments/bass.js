@@ -1,6 +1,6 @@
 import { Player } from 'tone';
-import { requestStartMusic } from './music';
-import bassFile from '../../assets/Bass.mp3';
+import { requestStartMusic } from '../background-music';
+import bassFile from '../../../assets/Bass.mp3';
 
 const player = new Player({
     url: bassFile,

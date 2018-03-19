@@ -1,6 +1,6 @@
-import LeadSynth from './lead';
-import { playWind } from './wind';
-import { startMusicAfterLoad } from './music';
+import LeadSynth from './instruments/lead';
+import { playWind } from './instruments/wind';
+import { startMusicAfterLoad } from './background-music';
 
 import { scale, MAX_NOTE_HEIGHT } from './constants';
 

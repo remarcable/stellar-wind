@@ -1,5 +1,5 @@
-import { playBass } from './bass';
-import { playPads } from './pads';
+import { playBass } from './instruments/bass';
+import { playPads } from './instruments/pads';
 
 const soundState = {
     shouldStart: false,

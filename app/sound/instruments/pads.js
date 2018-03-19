@@ -1,6 +1,6 @@
 import { Player, Freeverb } from 'tone';
-import { requestStartMusic } from './music';
-import padsFile from '../../assets/Pads.mp3';
+import { requestStartMusic } from '../background-music';
+import padsFile from '../../../assets/Pads.mp3';
 
 const reverbEffect = new Freeverb({
     roomSize: .9,
