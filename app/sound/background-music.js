@@ -7,7 +7,6 @@ const soundState = {
     padsLoaded: false,
 };
 
-
 function playBackgroundMusic() {
     playBass();
     playPads();
@@ -16,12 +15,18 @@ function playBackgroundMusic() {
 const alterStateAndRequestPlayback = startCallback => type => {
     soundState[type] = true;
 
-    if (soundState.bassLoaded && soundState.padsLoaded && soundState.shouldStart) {
+    if (
+        soundState.bassLoaded &&
+        soundState.padsLoaded &&
+        soundState.shouldStart
+    ) {
         startCallback();
     }
-}
+};
 
-export const requestStartMusic = alterStateAndRequestPlayback(playBackgroundMusic);
+export const requestStartMusic = alterStateAndRequestPlayback(
+    playBackgroundMusic,
+);
 
 export function startMusicAfterLoad() {
     requestStartMusic('shouldStart');

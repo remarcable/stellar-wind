@@ -4,7 +4,6 @@ import { startMusicAfterLoad } from './background-music';
 
 import { scale, MAX_NOTE_HEIGHT } from './constants';
 
-
 export function playBackgroundSounds() {
     playWind();
     startMusicAfterLoad();
@@ -13,7 +12,7 @@ export function playBackgroundSounds() {
 export function playNote(noteHeight) {
     const noteName = noteHeightToNoteName(noteHeight);
     const noteLength = Math.random() > 0.5 ? '16n' : '8n';
-    LeadSynth.triggerAttackRelease(noteName, noteLength)
+    LeadSynth.triggerAttackRelease(noteName, noteLength);
 }
 
 function noteHeightToNoteName(noteHeight) {

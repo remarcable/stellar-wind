@@ -1,21 +1,28 @@
 {
-  "name": "stellar-wind",
-  "version": "0.1.0",
-  "description": "Unique music composed by a decentralized organism",
-  "main": "index.html",
-  "scripts": {
-    "start": "parcel index.html",
-    "predeploy": "parcel build index.html --public-url ./",
-    "deploy": "gh-pages -d dist"
-  },
-  "license": "MIT",
-  "dependencies": {
-    "mo-js": "^0.288.2",
-    "stellar-sdk": "^0.8.0",
-    "tone": "^0.11.11"
-  },
-  "devDependencies": {
-    "gh-pages": "^1.1.0",
-    "parcel-bundler": "^1.6.2"
-  }
+    "name": "stellar-wind",
+    "version": "0.1.0",
+    "description": "Unique music composed by a decentralized organism",
+    "main": "index.html",
+    "scripts": {
+        "start": "parcel index.html",
+        "predeploy": "parcel build index.html --public-url ./",
+        "deploy": "gh-pages -d dist",
+        "prettier": "prettier --write ./app/*.js ./app/**/*.js"
+    },
+    "license": "MIT",
+    "dependencies": {
+        "mo-js": "^0.288.2",
+        "stellar-sdk": "^0.8.0",
+        "tone": "^0.11.11"
+    },
+    "devDependencies": {
+        "gh-pages": "^1.1.0",
+        "parcel-bundler": "^1.6.2",
+        "prettier": "1.11.1"
+    },
+    "prettier": {
+        "tabWidth": 4,
+        "singleQuote": true,
+        "trailingComma": "all"
+    }
 }

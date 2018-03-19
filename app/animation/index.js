@@ -1,6 +1,5 @@
 import mojs from 'mo-js';
 
-
 export function drawUniverse() {
     for (let i = 0; i < 500; i++) {
         const backgroundShape = new mojs.Shape({
@@ -8,19 +7,19 @@ export function drawUniverse() {
             shape: 'circle',
             top: 0,
             left: 0,
-            opacity: { 0 : 1 },
+            opacity: { 0: 1 },
             x: 0,
             y: 0,
-            radius: i < 100 ? 'rand(0.5, 4)': 'rand(0.5, 2)',
+            radius: i < 100 ? 'rand(0.5, 4)' : 'rand(0.5, 2)',
             fill: '#fff',
 
             duration: 'rand(500, 1000)',
         })
-        .tune({
-            top: 'rand(0%, 100%)',
-            left: 'rand(0%, 100%)',
-        })
-        .play();
+            .tune({
+                top: 'rand(0%, 100%)',
+                left: 'rand(0%, 100%)',
+            })
+            .play();
     }
 }
 
@@ -39,6 +38,6 @@ export function shootNewStar() {
 
         onComplete() {
             this.el.remove();
-        }
+        },
     }).play();
 }
