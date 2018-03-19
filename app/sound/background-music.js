@@ -13,10 +13,10 @@ function playBackgroundMusic() {
     playPads();
 }
 
-const alterStateAndRequestPlayback = type => startCallback => {
+const alterStateAndRequestPlayback = startCallback => type => {
     soundState[type] = true;
 
-    if (soundState.bass && soundState.pads && soundState.shouldStart) {
+    if (soundState.bassLoaded && soundState.padsLoaded && soundState.shouldStart) {
         startCallback();
     }
 }
