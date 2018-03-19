@@ -17,11 +17,10 @@ export function playNote(noteHeight) {
 }
 
 function noteHeightToNoteName(noteHeight) {
-     const index = Math.floor(scale.length / MAX_NOTE_HEIGHT * noteHeight);
-     return scale[index];
+    return scale[noteHeight];
 }
 
 export function playRandomNote() {
-    const noteHeight = Math.round(Math.random() * MAX_NOTE_HEIGHT) + 1;
+    const noteHeight = Math.floor(Math.random() * MAX_NOTE_HEIGHT);
     playNote(noteHeight);
 }

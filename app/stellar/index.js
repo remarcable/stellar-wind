@@ -2,17 +2,17 @@ import * as StellarSdk from 'stellar-sdk';
 
 const server = new StellarSdk.Server('https://horizon.stellar.org');
 
-export function createNewStreamOfTransactions(callback) {
+function createStreamOfTransactions(callback) {
     const lastCursor = 'now';
-    
-    return server.transactions()
+
+    server.transactions()
         .cursor(lastCursor)
         .stream({
             onmessage: callback,
         });
 }
 
-export function getNonZeroAmountsFromOperations(transaction) {
+function getNonZeroAmountsFromOperations(transaction) {
     const envelopeXDR = StellarSdk.xdr.TransactionEnvelope.fromXDR(transaction.envelope_xdr, 'base64');
     const operations = envelopeXDR._attributes.tx._attributes.operations;
 
@@ -26,4 +26,22 @@ export function getNonZeroAmountsFromOperations(transaction) {
     })
 
     return operationAmounts;
+}
+
+
+export function createStreamOfNormalizedTransactions({ normalizationScale, callback }) {
+    let maxOperationAmount = 0;
+
+    createStreamOfTransactions((response) => {
+        const txOperationAmounts = getNonZeroAmountsFromOperations(response);
+        txOperationAmounts.forEach(amount => {
+            if (amount > maxOperationAmount) {
+                maxOperationAmount = amount;
+            }
+
+            const normalizedAmount = Math.ceil((amount / maxOperationAmount) * normalizationScale);
+            callback(normalizedAmount);
+        });
+    });
+
 }

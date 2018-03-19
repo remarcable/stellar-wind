@@ -1,52 +1,51 @@
 import { drawUniverse, shootNewStar } from './animation';
-import { createNewStreamOfTransactions, getNonZeroAmountsFromOperations } from './stellar';
+import { createStreamOfNormalizedTransactions } from './stellar';
 import { getAverage } from './helpers';
 import { MAX_NOTE_HEIGHT } from './sound/constants';
 import {
-    playBackgroundSounds,
     playNote,
     playRandomNote,
+    playBackgroundSounds,
 } from './sound';
 
 import './index.css';
 
-drawUniverse();
-playBackgroundSounds();
 
-let operationAmounts = [];
-let maxOperationAmount = 0;
-
-const normalizationScale = MAX_NOTE_HEIGHT;
-
-createNewStreamOfTransactions((response) => {
-    const txOperationAmounts = getNonZeroAmountsFromOperations(response);
-    txOperationAmounts.forEach(amount => {
-        operationAmounts.push(amount);
-        if (amount > maxOperationAmount) {
-            maxOperationAmount = amount;
+let normalizedTransactionAmounts = [];
+createStreamOfNormalizedTransactions({
+    normalizationScale: MAX_NOTE_HEIGHT,
+    callback: (newValue) => {
+        // don't store duplicate transactions (they don't sound nice)
+        if (normalizedTransactionAmounts[normalizedTransactionAmounts.length - 1] !== newValue) {
+            normalizedTransactionAmounts.push(newValue);
         }
-    });
+    }
 });
 
-let lastAmout = 1;
-window.setInterval(() => {
-    const shouldUpdate = Math.random() > 0.5;
 
-    if (shouldUpdate && operationAmounts.length > 0) {
-        let currentAmount = operationAmounts.splice(0, 1)[0]; // get first element and remove it
-        while (currentAmount === lastAmout && operationAmounts.length > 0) { // don't repeat the same note again and again
-            currentAmount = operationAmounts.splice(0, 1)[0];
+drawUniverse();
+playBackgroundSounds();
+playAndDisplayTransactions({
+    amounts: normalizedTransactionAmounts,
+    minimumInterval: 500,
+});
+
+function playAndDisplayTransactions({ minimumInterval, amounts }) {
+    window.setInterval(function () {
+        const shouldProcess = Math.random() > .5; // create feeling of rythm and "realtimeness"
+        if (shouldProcess && amounts.length > 0) {
+            processNormalizedTransactions(amounts);
         }
+    }, minimumInterval);
+}
 
-        lastAmout = currentAmount;
-        const normalizedAmount = Math.ceil((currentAmount / maxOperationAmount) * normalizationScale);
-
-        if (normalizedAmount === 1) { // 1 sounds very boring
-            playRandomNote();
-        } else {
-            playNote(normalizedAmount);
-        }
-
+function processNormalizedTransactions(normalizedAmounts) {
+    const currentAmount = normalizedAmounts.splice(0, 1)[0]; // get first element and remove it
+    if (currentAmount === 1) {
+        playRandomNote();
+        shootNewStar();
+    } else {
+        playNote(currentAmount);
         shootNewStar();
     }
-}, 500)
+}
