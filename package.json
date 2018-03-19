@@ -7,8 +7,8 @@
         "start": "parcel index.html",
         "predeploy": "parcel build index.html --public-url ./",
         "deploy": "gh-pages -d dist",
-        "prettier": "prettier --write ./app/**/*.js",
-        "lint": "eslint ./app/**/*.js"
+        "prettier": "prettier --write ./app/*.js ./app/**/*.js ./app/**/**/*.js",
+        "lint": "eslint ./app/*.js ./app/**/*.js ./app/**/**/*.js"
     },
     "license": "MIT",
     "dependencies": {
