@@ -29,7 +29,9 @@
 .bottom-bar p {
     font-size: .85rem;
     margin: 10px;
-    letter-spacing: 2px;
+    letter-spacing: .5px;
+    font-family: Roboto, sans-serif;
+    font-weight: 200;
 }
 
 .github {
