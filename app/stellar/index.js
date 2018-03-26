@@ -23,7 +23,7 @@ function getNonZeroAmountsFromOperations(transaction) {
     const operationAmounts = [];
 
     operations.forEach((operation) => {
-        const amount = operation._attributes.body._value._attributes.amount;
+        const { amount } = operation._attributes.body._value._attributes;
         if (amount && amount.low > 0) {
             operationAmounts.push(amount.low);
         }
