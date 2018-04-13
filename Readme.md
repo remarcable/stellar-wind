@@ -1,18 +1,21 @@
-![image](https://user-images.githubusercontent.com/10008938/37473279-4ffb3144-286e-11e8-92fa-0db7813a100f.png)
+![image](https://user-images.githubusercontent.com/10008938/38724226-d9357da6-3f03-11e8-8605-6f31882404b9.png)
 
 # Stellar Wind
 Unique music composed by a decentralized organism - the [Stellar](https://www.stellar.org) transaction network
 
 ## Description
 
-Stellar Wind transforms the activity on the Stellar Network into harmonic musical art.
-It is intended to be kept open in a browser tab to listen to for relaxation, coding or any other activity requiring calmness and focus.
-Headphone usage strongly recommended!
+Stellar Wind transforms the activity on the Stellar Network into harmonic musical art by mapping every transaction to a musical note depending on the relative height of the transaction amount.
+
+It is intended to be kept open in a browser tab to listen to for relaxation, coding or any other activity requiring calmness and focus.<br>
+
+*Headphone usage strongly recommended!*
 
 ## Data
 
-The data for Stellar Wind to compose music is streamed from the Horizon API server. It captures all occurring transactions and stores all non zero amounts from operations in the network.
-Those amounts are taken off the array in regular intervals, get normalized and used as inputs for the music composition.
+The data for Stellar Wind to compose music is streamed from the [Horizon API server](https://github.com/stellar/horizon). It captures all occurring transactions and stores all non zero amounts from operations in the network.
+
+Those amounts are taken off a queue in regular intervals and used as normalized inputs for the music composition.
 
 ## Music
 
