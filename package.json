@@ -6,7 +6,7 @@
     "scripts": {
         "start": "parcel index.html",
         "build": "parcel build index.html --public-url ./",
-        "prebuild": "rm -r dist",
+        "prebuild": "rm -rf dist",
         "postbuild": "mv dist/stellar-wind.html dist/index.html",
         "predeploy": "npm run build",
         "deploy": "gh-pages -d dist",
