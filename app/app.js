@@ -1,3 +1,4 @@
+import { context as audioContext } from 'tone';
 import { drawUniverse, shootNewStar } from './animation';
 import { createStreamOfNormalizedTransactions } from './stellar';
 import { Queue } from './helpers';
@@ -9,7 +10,7 @@ import './index.css';
 const normalizedTransactionAmounts = new Queue();
 createStreamOfNormalizedTransactions({
     normalizationScale: MAX_NOTE_HEIGHT,
-    callback: newValue => {
+    callback: (newValue) => {
         // don't store duplicate transactions (they don't sound nice)
         normalizedTransactionAmounts.enqueueIfNotDuplicate(newValue);
     },
@@ -20,6 +21,12 @@ playBackgroundSounds();
 playAndDisplayTransactions({
     amounts: normalizedTransactionAmounts,
     minimumInterval: 500,
+});
+
+const playButton = document.getElementById('play-button');
+playButton.addEventListener('click', () => {
+    playButton.className = 'hide';
+    audioContext.resume();
 });
 
 function playAndDisplayTransactions({ minimumInterval, amounts }) {

@@ -8,6 +8,45 @@
     align-items: flex-end;
 }
 
+.triangle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-40%, -50%);
+
+  display: block;
+  width: 0;
+  height: 0;
+
+  border-style: solid;
+  border-width: 20px 0 20px 30px;
+  border-color: transparent transparent transparent #ffffff;
+}
+
+#play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 100px;
+  height: 100px;
+  border: 0;
+
+  border-radius: 50%;
+  background-color: rgba(96, 94, 212, 0.53);
+  cursor: pointer;
+  transition: opacity .2s;
+}
+
+#play-button:focus {
+  outline: 0;
+}
+
+.hide {
+  opacity: 0;
+}
+
 .bottom-bar {
     width: 80%;
     margin-bottom: 80px;
