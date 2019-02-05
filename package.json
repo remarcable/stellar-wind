@@ -5,9 +5,8 @@
     "main": "index.html",
     "scripts": {
         "start": "parcel index.html",
-        "build": "parcel build index.html --public-url ./",
+        "build": "parcel build index.html --public-url ./ --no-source-maps -o index.html",
         "prebuild": "rm -rf dist",
-        "postbuild": "mv dist/stellar-wind.html dist/index.html",
         "predeploy": "npm run build",
         "deploy": "gh-pages -d dist",
         "prettier": "prettier --write ./app/*.js ./app/**/*.js ./app/**/**/*.js",
