@@ -74,14 +74,14 @@
     padding-bottom: 8px;
 }
 
-.github {
+.links {
     position: absolute;
     z-index: 1000;
     top: 24px;
     right: 36px;
 }
 
-.github a {
+.links a {
     color: #fff;
     font-size: 0.75rem;
     filter: drop-shadow(1px 1px 1px #000);
