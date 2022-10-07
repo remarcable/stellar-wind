@@ -7,6 +7,7 @@
         "start": "parcel index.html",
         "build": "parcel build index.html --public-url ./ --no-source-maps -o index.html",
         "prebuild": "rm -rf dist",
+        "postbuild": "cp _redirects dist/_redirects",
         "predeploy": "npm run build",
         "deploy": "gh-pages -d dist",
         "prettier": "prettier --write ./app",
