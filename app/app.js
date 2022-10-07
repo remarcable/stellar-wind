@@ -7,29 +7,33 @@ import { playNote, playRandomNote, playBackgroundSounds } from "./sound";
 
 import "./index.css";
 
-const normalizedTransactionAmounts = new Queue();
-createStreamOfNormalizedTransactions({
-    normalizationScale: MAX_NOTE_HEIGHT,
-    callback: (newValue) => {
-        // don't store duplicate transactions (they don't sound nice)
-        normalizedTransactionAmounts.enqueueIfNotDuplicate(newValue);
-    },
-});
-
 drawUniverse();
-playBackgroundSounds();
-playAndDisplayTransactions({
-    amounts: normalizedTransactionAmounts,
-    minimumInterval: 500,
-});
+
+const setupAfterClick = () => {
+    const normalizedTransactionAmounts = new Queue();
+    createStreamOfNormalizedTransactions({
+        normalizationScale: MAX_NOTE_HEIGHT,
+        callback: (newValue) => {
+            // don't store duplicate transactions (they don't sound nice)
+            normalizedTransactionAmounts.enqueueIfNotDuplicate(newValue);
+        },
+    });
+
+    playBackgroundSounds();
+    playAndDisplayTransactions({
+        amounts: normalizedTransactionAmounts,
+        minimumInterval: 500,
+    });
+};
 
 const playButton = document.getElementById("play-button");
 
 playButton.addEventListener(
     "click",
     () => {
-        playButton.className = "hide";
+        setupAfterClick();
         audioContext.resume();
+        playButton.className = "hide";
         window.setTimeout(() => playButton.remove(), 200);
     },
     { once: true },
