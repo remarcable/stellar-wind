@@ -9,42 +9,42 @@
 }
 
 .triangle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-40%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%, -50%);
 
-  display: block;
-  width: 0;
-  height: 0;
+    display: block;
+    width: 0;
+    height: 0;
 
-  border-style: solid;
-  border-width: 20px 0 20px 30px;
-  border-color: transparent transparent transparent #ffffff;
+    border-style: solid;
+    border-width: 20px 0 20px 30px;
+    border-color: transparent transparent transparent #ffffff;
 }
 
 #play-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
-  width: 100px;
-  height: 100px;
-  border: 0;
+    width: 100px;
+    height: 100px;
+    border: 0;
 
-  border-radius: 50%;
-  background-color: rgba(96, 94, 212, 0.53);
-  cursor: pointer;
-  transition: opacity .2s;
+    border-radius: 50%;
+    background-color: rgba(96, 94, 212, 0.53);
+    cursor: pointer;
+    transition: opacity 0.2s;
 }
 
 #play-button:focus {
-  outline: 0;
+    outline: 0;
 }
 
 .hide {
-  opacity: 0;
+    opacity: 0;
 }
 
 .bottom-bar {
@@ -52,10 +52,11 @@
     margin-bottom: 80px;
     padding: 5px;
     border-radius: 3px;
-    background-color: rgba(0, 0, 0, .5);
+    background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
     text-align: center;
-    box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.3);
+    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12),
+        0 5px 5px -3px rgba(0, 0, 0, 0.3);
 }
 
 .bottom-bar h1 {
@@ -66,9 +67,9 @@
 }
 
 .bottom-bar p {
-    font-size: .85rem;
+    font-size: 0.85rem;
     margin: 10px;
-    letter-spacing: .5px;
+    letter-spacing: 0.5px;
     font-family: Roboto, sans-serif;
     font-weight: 200;
 }
@@ -82,6 +83,6 @@
 
 .github a {
     color: #fff;
-    font-size: .75rem;
-    filter: drop-shadow(1px 1px 1px #000)
+    font-size: 0.75rem;
+    filter: drop-shadow(1px 1px 1px #000);
 }

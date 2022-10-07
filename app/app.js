@@ -25,11 +25,15 @@ playAndDisplayTransactions({
 
 const playButton = document.getElementById('play-button');
 
-playButton.addEventListener('click', () => {
-    playButton.className = 'hide';
-    audioContext.resume();
-    window.setTimeout(() => playButton.remove(), 200);
-}, { once: true });
+playButton.addEventListener(
+    'click',
+    () => {
+        playButton.className = 'hide';
+        audioContext.resume();
+        window.setTimeout(() => playButton.remove(), 200);
+    },
+    { once: true },
+);
 
 function playAndDisplayTransactions({ minimumInterval, amounts }) {
     window.setInterval(() => {

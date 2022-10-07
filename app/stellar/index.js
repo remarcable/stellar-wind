@@ -44,7 +44,7 @@ export function createStreamOfNormalizedTransactions({ normalizationScale, callb
                 maxOperationAmount = amount;
             }
 
-            const normalizedAmount = Math.ceil(amount / maxOperationAmount * normalizationScale);
+            const normalizedAmount = Math.ceil((amount / maxOperationAmount) * normalizationScale);
             callback(normalizedAmount);
         });
     });
