@@ -9,27 +9,27 @@
         "prebuild": "rm -rf dist",
         "predeploy": "npm run build",
         "deploy": "gh-pages -d dist",
-        "prettier": "prettier --write ./app/*.js ./app/**/*.js ./app/**/**/*.js",
-        "lint": "eslint ./app/*.js ./app/**/*.js ./app/**/**/*.js"
+        "prettier": "prettier --write ./app",
+        "lint": "eslint ./app"
     },
     "license": "MIT",
     "dependencies": {
         "mo-js": "^0.288.2",
-        "stellar-sdk": "^0.13.0",
+        "stellar-sdk": "^10.4.0",
         "tone": "^13.4.9"
     },
     "devDependencies": {
-        "eslint": "^4.19.0",
-        "eslint-config-airbnb-base": "^12.1.0",
-        "eslint-plugin-import": "^2.9.0",
-        "gh-pages": "^2.0.1",
-        "parcel-bundler": "^1.6.2",
-        "prettier": "^1.16.4"
+        "eslint": "^8.24.0",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "eslint-plugin-import": "^2.26.0",
+        "gh-pages": "^4.0.0",
+        "parcel-bundler": "^1.12.5",
+        "prettier": "^2.7.1"
     },
     "prettier": {
         "tabWidth": 4,
         "printWidth": 100,
-        "singleQuote": true,
+        "singleQuote": false,
         "trailingComma": "all",
         "arrowParens": "always"
     }

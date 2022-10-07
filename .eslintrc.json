@@ -5,7 +5,7 @@
     },
     "rules": {
         "indent": ["error", 4],
-        "quotes": ["error", "single"],
+        "quotes": ["error", "double"],
         "semi": ["error", "always"],
         "no-use-before-define": ["error", { "functions": false }]
     }
