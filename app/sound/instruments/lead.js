@@ -3,7 +3,7 @@ import { Synth, Chorus, PingPongDelay, PitchShift } from "tone";
 const delay = new PingPongDelay({
     delayTime: 0.2,
     maxDelayTime: 0.3,
-}).toMaster();
+}).toDestination();
 
 const pitchShift = new PitchShift({
     pitch: 8,
@@ -15,7 +15,7 @@ const chorus = new Chorus({
     wet: 0.4,
 })
     .connect(pitchShift)
-    .toMaster();
+    .toDestination();
 
 export default new Synth({
     oscillator: {

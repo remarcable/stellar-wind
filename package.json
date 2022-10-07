@@ -17,7 +17,7 @@
     "dependencies": {
         "mo-js": "^0.288.2",
         "stellar-sdk": "^10.4.0",
-        "tone": "^13.4.9"
+        "tone": "^14.7.77"
     },
     "devDependencies": {
         "eslint": "^8.24.0",

@@ -4,7 +4,7 @@ const reverbEffect = new Freeverb({
     roomSize: 0.3,
     dampening: 1000,
     wet: 0.2,
-}).toMaster();
+}).toDestination();
 
 const chorusEffect = new Chorus({
     frequency: 0.02,
@@ -23,8 +23,8 @@ const whiteNoiseSynth = new NoiseSynth({
     volume: -60,
     envelope: {
         attack: 0.1,
-        sustain: 2,
-        release: 2,
+        sustain: 1,
+        release: 1,
     },
 }).connect(cutOffFilter);
 

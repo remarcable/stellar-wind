@@ -6,7 +6,7 @@ const reverbEffect = new Freeverb({
     roomSize: 0.9,
     dampening: 10000,
     wet: 0.8,
-}).toMaster();
+}).toDestination();
 
 const player = new Player({
     url: padsFile,
@@ -18,7 +18,7 @@ const player = new Player({
     },
 })
     .connect(reverbEffect)
-    .toMaster();
+    .toDestination();
 
 export function playPads() {
     player.volume.value = -18;

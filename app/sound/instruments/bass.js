@@ -10,7 +10,7 @@ const player = new Player({
     onload() {
         requestStartMusic("bassLoaded");
     },
-}).toMaster();
+}).toDestination();
 
 export function playBass() {
     player.volume.value = -12;
