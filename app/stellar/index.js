@@ -19,14 +19,14 @@ function getNonZeroAmountsFromOperations(transaction) {
         "base64",
     );
 
-    const operations = envelopeXDR?._value?._attributes?.tx?._attributes?.operations;
+    const operations = envelopeXDR?._value?._attributes?.tx?._attributes?.operations ?? [];
 
     const operationAmounts = [];
 
     operations.forEach((operation) => {
-        const { amount } = operation._attributes.body._value._attributes || {};
+        const { amount } = operation?._attributes?.body?._value?._attributes ?? {};
 
-        if (amount && amount.low > 0) {
+        if (amount?.low > 0) {
             operationAmounts.push(amount.low);
         }
     });
