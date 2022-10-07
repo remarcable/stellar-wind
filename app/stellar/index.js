@@ -1,13 +1,16 @@
-import * as StellarSdk from "stellar-sdk";
+import StellarSdk from "stellar-sdk";
 
 const server = new StellarSdk.Server("https://horizon.stellar.org");
 
 function createStreamOfTransactions(callback) {
     const lastCursor = "now";
 
-    server.transactions().cursor(lastCursor).stream({
-        onmessage: callback,
-    });
+    server
+        .transactions()
+        .cursor(lastCursor)
+        .stream({
+            onmessage: callback,
+        });
 }
 
 function getNonZeroAmountsFromOperations(transaction) {
@@ -15,7 +18,8 @@ function getNonZeroAmountsFromOperations(transaction) {
         transaction.envelope_xdr,
         "base64",
     );
-    const operations = envelopeXDR._attributes.tx._attributes.operations;
+
+    const operations = envelopeXDR?._value?._attributes?.tx?._attributes?.operations;
 
     const operationAmounts = [];
 
