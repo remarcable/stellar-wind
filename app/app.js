@@ -1,11 +1,11 @@
-import { context as audioContext } from 'tone';
-import { drawUniverse, shootNewStar } from './animation';
-import { createStreamOfNormalizedTransactions } from './stellar';
-import { Queue } from './helpers';
-import { MAX_NOTE_HEIGHT } from './sound/constants';
-import { playNote, playRandomNote, playBackgroundSounds } from './sound';
+import { context as audioContext } from "tone";
+import { drawUniverse, shootNewStar } from "./animation";
+import { createStreamOfNormalizedTransactions } from "./stellar";
+import { Queue } from "./helpers";
+import { MAX_NOTE_HEIGHT } from "./sound/constants";
+import { playNote, playRandomNote, playBackgroundSounds } from "./sound";
 
-import './index.css';
+import "./index.css";
 
 const normalizedTransactionAmounts = new Queue();
 createStreamOfNormalizedTransactions({
@@ -23,12 +23,12 @@ playAndDisplayTransactions({
     minimumInterval: 500,
 });
 
-const playButton = document.getElementById('play-button');
+const playButton = document.getElementById("play-button");
 
 playButton.addEventListener(
-    'click',
+    "click",
     () => {
-        playButton.className = 'hide';
+        playButton.className = "hide";
         audioContext.resume();
         window.setTimeout(() => playButton.remove(), 200);
     },

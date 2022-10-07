@@ -1,4 +1,4 @@
-import { Filter, NoiseSynth, Chorus, Freeverb } from 'tone';
+import { Filter, NoiseSynth, Chorus, Freeverb } from "tone";
 
 const reverbEffect = new Freeverb({
     roomSize: 0.3,
@@ -15,7 +15,7 @@ const chorusEffect = new Chorus({
 }).connect(reverbEffect);
 
 const cutOffFilter = new Filter({
-    type: 'lowpass',
+    type: "lowpass",
     frequency: 900,
 }).connect(chorusEffect);
 

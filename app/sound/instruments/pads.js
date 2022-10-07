@@ -1,6 +1,6 @@
-import { Player, Freeverb } from 'tone';
-import { requestStartMusic } from '../background-music';
-import padsFile from '../../../assets/Pads.mp3';
+import { Player, Freeverb } from "tone";
+import { requestStartMusic } from "../background-music";
+import padsFile from "../../../assets/Pads.mp3";
 
 const reverbEffect = new Freeverb({
     roomSize: 0.9,
@@ -14,7 +14,7 @@ const player = new Player({
     fadeIn: 5,
     retrigger: true,
     onload() {
-        requestStartMusic('padsLoaded');
+        requestStartMusic("padsLoaded");
     },
 })
     .connect(reverbEffect)

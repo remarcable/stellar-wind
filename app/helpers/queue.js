@@ -22,6 +22,6 @@ export default class Queue {
             return this.items.splice(0, 1)[0];
         }
 
-        throw new Error('Queue: No value to dequeue');
+        throw new Error("Queue: No value to dequeue");
     }
 }

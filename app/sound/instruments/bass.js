@@ -1,6 +1,6 @@
-import { Player } from 'tone';
-import { requestStartMusic } from '../background-music';
-import bassFile from '../../../assets/Bass.mp3';
+import { Player } from "tone";
+import { requestStartMusic } from "../background-music";
+import bassFile from "../../../assets/Bass.mp3";
 
 const player = new Player({
     url: bassFile,
@@ -8,7 +8,7 @@ const player = new Player({
     fadeIn: 5,
     retrigger: true,
     onload() {
-        requestStartMusic('bassLoaded');
+        requestStartMusic("bassLoaded");
     },
 }).toMaster();
 

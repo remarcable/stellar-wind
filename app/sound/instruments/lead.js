@@ -1,4 +1,4 @@
-import { Synth, Chorus, PingPongDelay, PitchShift } from 'tone';
+import { Synth, Chorus, PingPongDelay, PitchShift } from "tone";
 
 const delay = new PingPongDelay({
     delayTime: 0.2,
@@ -19,7 +19,7 @@ const chorus = new Chorus({
 
 export default new Synth({
     oscillator: {
-        type: 'sine',
+        type: "sine",
     },
     envelope: {
         attack: 0.1,

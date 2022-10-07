@@ -1,5 +1,5 @@
-import { playBass } from './instruments/bass';
-import { playPads } from './instruments/pads';
+import { playBass } from "./instruments/bass";
+import { playPads } from "./instruments/pads";
 
 const soundState = {
     shouldStart: false,
@@ -23,5 +23,5 @@ const alterStateAndRequestPlayback = (startCallback) => (type) => {
 export const requestStartMusic = alterStateAndRequestPlayback(playBackgroundMusic);
 
 export function startMusicAfterLoad() {
-    requestStartMusic('shouldStart');
+    requestStartMusic("shouldStart");
 }
